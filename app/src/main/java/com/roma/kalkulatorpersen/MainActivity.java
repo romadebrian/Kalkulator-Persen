@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.renderscript.Script;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     View Form1;
@@ -28,15 +30,30 @@ public class MainActivity extends AppCompatActivity {
         Hitung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String jumlahString = Jumlah.getText().toString();
-                String persenString       = Persen.getText().toString();
+                String input1 = Jumlah.getText().toString();
+                String input2 = Persen.getText().toString();
 
-                int jumlah  = Integer.parseInt(jumlahString);
-                int persen  = Integer.parseInt(persenString);
-                int hasil   = jumlah + persen;
+                if (input1.length() == 0) {
+                    Toast.makeText(MainActivity.this, "Jumlah Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if (input2.length() == 0) {
+                    Toast.makeText(MainActivity.this, "Jumlah Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    int jumlah  = Integer.parseInt(input1);
+                    int persen  = Integer.parseInt(input2);
 
-                Hasil.setText("hasil");
+                    int hasil = jumlah * persen / 100;
+
+                    Hasil.setText(String.valueOf(hasil));
+                    Log.d( "Hasilnya: ", String.valueOf(hasil));
+                }
+
             }
         });
     }
+
+
 }
