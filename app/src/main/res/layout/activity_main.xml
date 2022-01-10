@@ -33,6 +33,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/Frm_Btn_Mode1"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -44,6 +45,7 @@
                 tools:ignore="TextContrastCheck" />
 
             <Button
+                android:id="@+id/Frm_Btn_Mode2"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

@@ -13,12 +13,16 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     View Form1;
     EditText Jumlah, Persen, Hasil;
-    Button Hitung;
+    Button Hitung, Mode1, Mode2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Mode1 = findViewById(R.id.Frm_Btn_Mode1);
+        Mode2 = findViewById(R.id.Frm_Btn_Mode2);
 
         Form1 = findViewById(R.id.Frm_Persen1);
         Jumlah = findViewById(R.id.Frm_Input_Jumlah);
@@ -38,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 else if (input2.length() == 0) {
-                    Toast.makeText(MainActivity.this, "Jumlah Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Persen Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 else {
@@ -51,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
                     Log.d( "Hasilnya: ", String.valueOf(hasil));
                 }
 
+            }
+        });
+
+        Mode1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.Frm_Include).setVisibility(View.GONE);
             }
         });
     }
