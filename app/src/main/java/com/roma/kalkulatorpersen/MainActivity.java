@@ -79,9 +79,9 @@ public class MainActivity extends AppCompatActivity {
 
                     double hasil    = jumlah / berapa * 100 ;
 
-                    int convert  = (int) hasil;
+//                    int convert  = (int) hasil;
 
-                    String output   = convert + "%";
+                    String output   = hasil + "%";
 
                     Hasil2.setText(String.valueOf(output));
                     Log.d( "Hasilnya: ", String.valueOf(hasil));
