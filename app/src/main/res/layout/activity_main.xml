@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Frm_Include"
-            layout="@layout/persen_1"/>
+            layout="@layout/persen_2"/>
 
     </LinearLayout>
 
