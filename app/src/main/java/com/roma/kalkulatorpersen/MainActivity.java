@@ -2,18 +2,21 @@ package com.roma.kalkulatorpersen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.renderscript.Script;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     View Form1;
     EditText Jumlah, Persen, Hasil, Jumlah2, Berapa, Hasil2;
     Button Hitung, Hitung2, Mode1, Mode2;
+    ImageView Footer;
 
 
     @Override
@@ -35,34 +38,36 @@ public class MainActivity extends AppCompatActivity {
         Hasil2  = findViewById(R.id.Frm_Input_Hasil2);
         Hitung2 = findViewById(R.id.Frm_Btn_Hitung2);
 
+        Footer = findViewById(R.id.Frm_Img_Footer);
 
 
-//        Hitung.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String input1 = Jumlah.getText().toString();
-//                String input2 = Persen.getText().toString();
-//
-//                if (input1.length() == 0) {
-//                    Toast.makeText(MainActivity.this, "Jumlah Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                else if (input2.length() == 0) {
-//                    Toast.makeText(MainActivity.this, "Persen Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                else {
-//                    int jumlah  = Integer.parseInt(input1);
-//                    int persen  = Integer.parseInt(input2);
-//
-//                    int hasil = jumlah * persen / 100;
-//
-//                    Hasil.setText(String.valueOf(hasil));
-//                    Log.d( "Hasilnya: ", String.valueOf(hasil));
-//                }
-//
-//            }
-//        });
+
+        Hitung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String input1 = Jumlah.getText().toString();
+                String input2 = Persen.getText().toString();
+
+                if (input1.length() == 0) {
+                    Toast.makeText(MainActivity.this, "Jumlah Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else if (input2.length() == 0) {
+                    Toast.makeText(MainActivity.this, "Persen Tidak Boleh Kosong", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    int jumlah  = Integer.parseInt(input1);
+                    int persen  = Integer.parseInt(input2);
+
+                    int hasil = jumlah * persen / 100;
+
+                    Hasil.setText(String.valueOf(hasil));
+                    Log.d( "Hasilnya: ", String.valueOf(hasil));
+                }
+
+            }
+        });
 
         Hitung2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +97,29 @@ public class MainActivity extends AppCompatActivity {
         Mode1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.Frm_Include).setVisibility(View.VISIBLE);
+                findViewById(R.id.Frm_Include2).setVisibility(View.GONE);
+
+                Mode1.setBackgroundColor(Color.parseColor("#018786"));
+                Mode2.setBackgroundColor(Color.parseColor("#6200EE"));
+            }
+        });
+
+        Mode2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 findViewById(R.id.Frm_Include).setVisibility(View.GONE);
+                findViewById(R.id.Frm_Include2).setVisibility(View.VISIBLE);
+
+                Mode1.setBackgroundColor(Color.parseColor("#6200EE"));
+                Mode2.setBackgroundColor(Color.parseColor("#018786"));
+            }
+        });
+
+        Footer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Created by Roma Debrian", Toast.LENGTH_SHORT).show();
             }
         });
     }
